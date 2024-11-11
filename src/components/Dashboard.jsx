@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CardDiv, StDiv } from "../styled/styled";
 import pokemonball from "./pokemonball.png";
+import { ConText } from "../ContText/ContText";
 
-const Dashboard = ({ props, removePokemon }) => {
+const Dashboard = () => {
+  const { pokemonDashboard, removePokemon } = useContext(ConText);
   return (
     <>
       <h1>
         나만의 포켓몬
         <StDiv>
-          {props.map((pokemon) => {
+          {pokemonDashboard.map((pokemon) => {
             return (
               <CardDiv key={pokemon.id}>
                 <img src={pokemon.img_url ? pokemon.img_url : pokemonball} />
@@ -24,7 +26,7 @@ const Dashboard = ({ props, removePokemon }) => {
               </CardDiv>
             );
           })}
-          {new Array(6 - props.length).fill(null).map((_, index) => {
+          {new Array(6 - pokemonDashboard.length).fill(null).map((_, index) => {
             return <img src={pokemonball} key={index} />;
           })}
         </StDiv>
@@ -34,4 +36,3 @@ const Dashboard = ({ props, removePokemon }) => {
 };
 
 export default Dashboard;
-

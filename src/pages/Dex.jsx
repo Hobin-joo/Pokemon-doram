@@ -33,9 +33,11 @@ const Dex = () => {
 
   return (
     <>
-      <ConText.Provider>
-        <Dashboard props={pokemonDashboard} removePokemon={removePokemon} />
-        <PokemonList datas={pokemonData} addPokemon={addPokemon} />
+      <ConText.Provider
+        value={{ addPokemon, removePokemon, pokemonData, pokemonDashboard }}
+      >
+        <Dashboard />
+        <PokemonList />
       </ConText.Provider>
     </>
   );
