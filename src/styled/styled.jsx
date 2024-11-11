@@ -9,10 +9,13 @@ export const StDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   font-family: "Arial", sans-serif;
   transition: transform 0.2s ease-in-out;
   height: 100%;
   flex-wrap: wrap;
+  &:hover {
+  }
 `;
 
 export const CardDiv = styled.div`
@@ -22,3 +25,5 @@ export const CardDiv = styled.div`
   border-radius: 8px;
   text-align: center;
 `;
+
+
