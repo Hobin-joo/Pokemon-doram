@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
-import PokemonCard from "../components/PokemonCard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../components/Data";
-import PokemonDetail from "./PokemonDetail";
 import { ConText } from "../ContText/ContText";
+import { toast } from "react-toastify";
 
 const pokemonData = MOCK_DATA;
 const Dex = () => {
@@ -12,14 +11,14 @@ const Dex = () => {
 
   const addPokemon = (pokemon) => {
     if (pokemonDashboard.find((e) => e.id === pokemon.id)) {
-      alert("이미 추가됨");
+      toast.info("이미 추가됨");
       return;
     }
     if (pokemonDashboard.length === 6) {
-      alert("6개만 추가할수있습니다");
+      toast.info("6개만 추가할수있습니다");
       return;
     }
-    setPokemonDashboard([...pokemonDashboard, pokemon]);
+    setPokemonDashboard((prevPokemon) => [...prevPokemon, pokemon]);
   };
 
   const removePokemon = (korean_name) => {
@@ -28,8 +27,6 @@ const Dex = () => {
     );
     setPokemonDashboard(deletePokemon);
   };
-
-  console.log(pokemonDashboard);
 
   return (
     <>

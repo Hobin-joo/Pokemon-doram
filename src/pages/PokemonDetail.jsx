@@ -4,8 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const PokemonDetail = ({ datas }) => {
   const navigate = useNavigate();
-
+  console.log(datas);
   const param = useParams();
+  console.log(param);
   return (
     <>
       <CardDiv>
