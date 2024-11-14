@@ -33,6 +33,7 @@ const Dex = () => {
       <ConText.Provider
         value={{ addPokemon, removePokemon, pokemonData, pokemonDashboard }}
       >
+        <ToastContainer />
         <Dashboard />
         <PokemonList />
       </ConText.Provider>
