@@ -1,5 +1,5 @@
 import React from "react";
-import { StDiv, CardDiv } from "../styled/styled";
+import { StDiv } from "../styled/styled";
 import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../components/Data";
 
