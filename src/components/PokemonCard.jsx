@@ -1,8 +1,11 @@
 import React from "react";
 import { CardDiv } from "../styled/styled";
 import { Link } from "react-router-dom";
+import { addPokemon } from "../redux/Pokemonslice";
+import { useDispatch } from "react-redux";
 
-const PokemonCard = ({ data, addPokemon }) => {
+const PokemonCard = ({ data }) => {
+  const dispatch = useDispatch();
   const dataId = data.id.toString();
   return (
     <CardDiv key={data.id}>
@@ -13,7 +16,7 @@ const PokemonCard = ({ data, addPokemon }) => {
       <p>No.{dataId.padStart(3, "0")}</p>
       <button
         onClick={() => {
-          addPokemon(data);
+          dispatch(addPokemon(data));
         }}
       >
         추가

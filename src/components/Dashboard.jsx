@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { CardDiv, StDiv } from "../styled/styled";
 import pokemonball from "./pokemonball.png";
-import { ConText } from "../ContText/ContText";
 import { Pokemonball } from "../styled/styled";
 import { PTag } from "../styled/styled";
+import { removePokemon } from "../redux/Pokemonslice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard = () => {
-  const { pokemonDashboard, removePokemon } = useContext(ConText);
+  const pokemonDashboard = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
   return (
     <>
       <h1>
@@ -20,7 +22,7 @@ const Dashboard = () => {
                 <p>No.{pokemon.id}</p>
                 <button
                   onClick={() => {
-                    removePokemon(pokemon.korean_name);
+                    dispatch(removePokemon(pokemon.korean_name));
                   }}
                 >
                   삭제

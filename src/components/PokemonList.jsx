@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { StDiv, CardDiv } from "../styled/styled";
 import PokemonCard from "./PokemonCard";
-import { ConText } from "../ContText/ContText";
+import MOCK_DATA from "../components/Data";
 
 const PokemonList = () => {
-  const { addPokemon, pokemonData } = useContext(ConText);
   return (
     <>
       <StDiv>
-        {pokemonData.map((data) => (
-          <PokemonCard key={data.id} data={data} addPokemon={addPokemon} />
+        {MOCK_DATA.map((data) => (
+          <PokemonCard key={data.id} data={data} />
         ))}
       </StDiv>
     </>
