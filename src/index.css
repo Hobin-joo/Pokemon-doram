@@ -26,11 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  /* background-image: url(https://phoneky.co.uk/thumbs/wallpapers/p2ls/games/45/cd691c7b12720920.jpg); */
 }
 
 button {

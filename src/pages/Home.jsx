@@ -1,10 +1,10 @@
 import React from "react";
-import { Router } from "../shared/Router";
 import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div>
       Pokemon

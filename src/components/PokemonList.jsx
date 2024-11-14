@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { StDiv, CardDiv } from "../styled/styled";
+import React from "react";
+import { StDiv } from "../styled/styled";
 import PokemonCard from "./PokemonCard";
+import MOCK_DATA from "../components/Data";
 
-const PokemonList = ({ datas, addPokemon }) => {
+const PokemonList = () => {
   return (
     <>
       <StDiv>
-        {datas.map((data) => (
-          <PokemonCard key={data.id} data={data} addPokemon={addPokemon} />
+        {MOCK_DATA.map((data) => (
+          <PokemonCard key={data.id} data={data} />
         ))}
       </StDiv>
     </>

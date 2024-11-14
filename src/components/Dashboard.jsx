@@ -1,27 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { CardDiv, StDiv } from "../styled/styled";
+import pokemonball from "./pokemonball.png";
+import { Pokemonball } from "../styled/styled";
+import { PTag } from "../styled/styled";
+import { removePokemon } from "../redux/Pokemonslice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Dashboard = ({ props, removePokemon }) => {
+const Dashboard = () => {
+  const pokemonDashboard = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
   return (
     <>
       <h1>
-        나만의 포켓몬
+        <PTag>나만의 포켓몬</PTag>
         <StDiv>
-          {props.map((pokemon) => {
+          {pokemonDashboard.map((pokemon) => {
             return (
               <CardDiv key={pokemon.id}>
-                <img src={pokemon.img_url} />
+                <img src={pokemon.img_url ? pokemon.img_url : pokemonball} />
                 <p>{pokemon.korean_name}</p>
                 <p>No.{pokemon.id}</p>
                 <button
                   onClick={() => {
-                    removePokemon(pokemon.korean_name);
+                    dispatch(removePokemon(pokemon.korean_name));
                   }}
                 >
                   삭제
                 </button>
               </CardDiv>
             );
+          })}
+          {new Array(6 - pokemonDashboard.length).fill(null).map((_, index) => {
+            return <Pokemonball src={pokemonball} key={index} />;
           })}
         </StDiv>
       </h1>
